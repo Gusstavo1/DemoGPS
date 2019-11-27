@@ -1,20 +1,15 @@
 package com.global.demogps;
 
-import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
-import android.content.Intent;
 import android.content.SharedPreferences;
+import android.support.annotation.NonNull;
+import android.support.design.widget.BottomSheetBehavior;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.Button;
-import android.widget.CompoundButton;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -30,9 +25,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private FloatingActionButton btnFloating;
     private Boolean ubicacion = false;
     private static final String TAG = "MapsActivity";
-    private AlertDialog dialogBuilder;
-    private View dialogView;
-    private  RadioGroup radioGroup;
+    public static BottomSheetBehavior sheetBehavior;
+    public static LinearLayout btnSheetLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,11 +38,40 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         final SharedPreferences sharedPreferences = getSharedPreferences("Status",Context.MODE_PRIVATE);
         final SharedPreferences.Editor editor = sharedPreferences.edit();
 
-        btnFloating.setOnClickListener(new View.OnClickListener() {
+        sheetBehavior.setBottomSheetCallback(new BottomSheetBehavior.BottomSheetCallback() {
+            @Override
+            public void onStateChanged(@NonNull View view, int i) {
+                switch (i){
+                    case BottomSheetBehavior.STATE_HIDDEN:
+                        break;
+
+                    case BottomSheetBehavior.STATE_EXPANDED: {
+                        //expandableListView.setVisibility(View.VISIBLE);
+                    }
+                    break;
+
+                    case BottomSheetBehavior.STATE_COLLAPSED: {
+                        //expandableListView.setVisibility(View.GONE);
+                    }
+                    break;
+
+                    case BottomSheetBehavior.STATE_DRAGGING:
+                        break;
+                    case BottomSheetBehavior.STATE_SETTLING:
+                        break;
+                }
+
+            }
+            @Override
+            public void onSlide(@NonNull View view, float v) {
+
+            }
+        });
+
+        /*btnFloating.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                //customBoton();
                 if(ubicacion.equals(sharedPreferences.getBoolean("Estado",false))){
                     ubicacionUsuario();
                     editor.putBoolean("Estado",true);
@@ -59,10 +82,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     Toast.makeText(MapsActivity.this, "CARGA MARCADORES ", Toast.LENGTH_SHORT).show();
                 }
             }
-        });
-        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
+        });*/
+
+       SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
-        mapFragment.getMapAsync(this);
+       mapFragment.getMapAsync(this);
     }
 
     @Override
@@ -75,7 +99,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     public void views(){
         //btnFloating = (FloatingActionButton)findViewById(R.id.btnFloating);
-        btnFloating.setBackgroundTintList(getResources().getColorStateList(R.color.blue));
+        //btnFloating.setBackgroundTintList(getResources().getColorStateList(R.color.blue));
+        btnSheetLayout = (LinearLayout)findViewById(R.id.btnSheetLayout);
+        sheetBehavior = BottomSheetBehavior.from(btnSheetLayout);
     }
 
     public boolean ubicacionUsuario(){
@@ -85,61 +111,12 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         return true;
     }
 
-
     public void statusUbicacionUser(){
         SharedPreferences sharedPreferences = getSharedPreferences("Status",Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putBoolean("Estado",false);
         editor.commit();
     }
-
-
-    /*
-    public void customBoton(){
-
-        dialogBuilder = new AlertDialog.Builder(this).create();
-        LayoutInflater inflater = this.getLayoutInflater();
-        dialogView = inflater.inflate(R.layout.gps_options, null);
-        radioGroup = (RadioGroup)dialogView.findViewById(R.id.RadioGroupminutos);
-        final RadioButton radioButton15 = (RadioButton)dialogView.findViewById(R.id.radio15);
-        final RadioButton radioButton30 = (RadioButton)dialogView.findViewById(R.id.radio30);
-        final RadioButton radioButton60 = (RadioButton)dialogView.findViewById(R.id.radio60);
-        Button btnAceptar = (Button)dialogView.findViewById(R.id.btnAceptar);
-        Button btnCancel = (Button)dialogView.findViewById(R.id.btnCancel);
-
-
-        btnCancel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dialogBuilder.dismiss();
-            }
-        });
-
-        btnAceptar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(MapsActivity.this, "Click", Toast.LENGTH_SHORT).show();
-                if(radioButton15.isChecked()){
-                    Log.e(TAG,"RB ");
-                    Toast.makeText(getApplicationContext(), "Tu ubicación será pública por 15 minutos", Toast.LENGTH_SHORT).show();
-                }else if(radioButton30.isChecked()){
-
-                    Toast.makeText(getApplicationContext(), "Tu ubicación será pública por 30 minutos", Toast.LENGTH_SHORT).show();
-                }else if(radioButton60.isChecked()){
-                    Toast.makeText(getApplicationContext(), "Tu ubicación será pública por 60 minutos", Toast.LENGTH_SHORT).show();
-                }
-                dialogBuilder.dismiss();
-            }
-        });
-        dialogBuilder.setView(dialogView);
-        dialogBuilder.show();
-    }*/
-
-
-    public void rbMethod(View v){
-        //int radioButtonId = dialogView.
-    }
-
 }
 
 
