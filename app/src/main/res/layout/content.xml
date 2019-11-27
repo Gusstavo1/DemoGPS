@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!--
+    <android.support.design.widget.FloatingActionButton
+
+        android:id="@+id/btnFloating"
+        android:layout_margin="0dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:src="@drawable/ic_location"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.935"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.919" />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="200dp">
+            <include layout="@layout/activity_maps"></include>
+        </FrameLayout>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:layout_margin="4dp"
+            android:id="@+id/btn15"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:text="15 minutos"
+            android:textAllCaps="false"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            android:background="#040404"/>
+
+        <Button
+            android:layout_margin="4dp"
+            android:id="@+id/btn30"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:text="30 minutos"
+            android:textAllCaps="false"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            android:background="#040404"/>
+
+        <Button
+            android:layout_margin="4dp"
+            android:id="@+id/btn60"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:text="60 minutos"
+            android:textAllCaps="false"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            android:background="#040404"/>
+
+        <Button
+            android:layout_margin="4dp"
+            android:id="@+id/btn24hrs"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:text="1 día"
+            android:textAllCaps="false"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            android:background="#040404"/>
+
+    </LinearLayout>
+-->
+</android.support.design.widget.CoordinatorLayout>
+

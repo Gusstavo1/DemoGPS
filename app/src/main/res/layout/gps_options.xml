@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Volver mi ubicación pública por:"
+        android:textColor="#252525"
+        android:textStyle="bold"
+        android:textSize="20dp"/>
+
+    <RadioGroup
+        android:id="@+id/RadioGroupminutos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <android.support.v7.widget.AppCompatRadioButton
+                android:id="@+id/radio15"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:text="15 minutos" />
+
+            <android.support.v7.widget.AppCompatRadioButton
+                android:id="@+id/radio30"
+                android:layout_marginLeft="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="30 minutos"/>
+
+            <android.support.v7.widget.AppCompatRadioButton
+                android:id="@+id/radio60"
+                android:layout_marginLeft="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="60 minutos"/>
+        </LinearLayout>
+
+    </RadioGroup>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/btnCancel"
+                android:backgroundTint="#616464"
+                android:textColor="#FFFFFF"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_width="150dp"
+                android:layout_height="45dp"
+                android:text="Cancelar"
+                android:textAllCaps="false"/>
+
+            <Button
+                android:id="@+id/btnAceptar"
+                android:backgroundTint="#2196F3"
+                android:textColor="#FFFFFF"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_width="150dp"
+                android:layout_height="45dp"
+                android:text="Aceptar"
+                android:textAllCaps="false"/>
+        </LinearLayout>
+</LinearLayout>
