@@ -1,4 +1,6 @@
 <resources>
     <string name="app_name">DemoGPS</string>
     <string name="title_activity_maps">Map</string>
+    <string name="socketIp">wss://plataforma911.ml/CONTROLADOR/MovilService/SocketNotifications</string>
+    <string name="gpsVehicular">https://viict.guardianacional360.ml/cuartelgeneral/gpsvehicular</string>
 </resources>

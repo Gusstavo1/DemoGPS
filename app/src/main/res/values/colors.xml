@@ -4,6 +4,8 @@
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
     <color name="blue">#6BCAF5</color>
-
+    <color name="floating">#C7C5C4</color>
+    <color name="changeBackgroundButton">#009688</color>
+    <color name="backgroundButton">#040404</color>
 
 </resources>
